@@ -13,17 +13,17 @@
         </div>
         <div class="feed-bottom">
             <a class="btn btn-like" @click="feedLike">
-                <span class="material-icons icons">
+                <span class="material-icons icons like-icon">
                     favorite_border
                 </span>
             </a>
             <a class="btn btn-comment" @click="feedComment">
-                <span class="material-icons icons">
+                <span class="material-icons icons comment-icon">
                     chat_bubble_outline
                 </span>
             </a>
             <a class="btn btn-share" @click="feedShare">
-                <span class="material-icons icons">
+                <span class="material-icons icons share-icon">
                     share
                 </span>
             </a>
@@ -32,15 +32,29 @@
 </template>
 
 <script>
+
+
 export default {
     name: 'Feed',
     props: {
-        item: Object
+        item: Object,
+    },
+    data(){
+        return{
+            likeonoff: true
+        }
     },
     methods : {
         feedLike(){
-            console.log('Like!')
-            
+            console.log('Like!');
+            console.log(this.likeonoff);
+            if(this.likeonoff == true){
+                console.log('hide');
+                this.likeonoff = false;
+            } else {
+                console.log('show');
+                this.likeonoff = true;
+            }
         },
         feedComment(){
             console.log('Comment!')
