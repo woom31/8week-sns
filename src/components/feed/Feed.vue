@@ -14,7 +14,7 @@
         <div class="feed-bottom">
             <a class="btn btn-like" @click="feedLike">
                 <span class="material-icons icons like-icon">
-                    favorite_border
+                    {{likestatus}}
                 </span>
             </a>
             <a class="btn btn-comment" @click="feedComment">
@@ -39,19 +39,22 @@ export default {
     },
     data(){
         return{
-            likeonoff: true
+            likeonoff: false,
+            likestatus: "favorite_border",
+            likeoff: "favorite_border",
+            likeon: "favorite"
         }
     },
     methods : {
         feedLike(){
             console.log('Like!');
             console.log(this.likeonoff);
-            if(this.likeonoff == true){
-                console.log('hide');
-                this.likeonoff = false;
-            } else {
-                console.log('show');
+            if(this.likeonoff == false){
                 this.likeonoff = true;
+                this.likestatus = this.likeon;
+            } else if(this.likeonoff == true){
+                this.likeonoff = false;
+                this.likestatus = this.likeoff;
             }
         },
         feedComment(){
@@ -62,6 +65,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style scoped>
