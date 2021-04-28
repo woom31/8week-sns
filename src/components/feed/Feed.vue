@@ -40,9 +40,9 @@ export default {
     data(){
         return{
             likeonoff: false,
-            likestatus: "favorite_border",
-            likeoff: "favorite_border",
-            likeon: "favorite"
+            likestatus: 'favorite_border',
+            likeoff: 'favorite_border',
+            likeon: 'favorite'
         }
     },
     methods : {
